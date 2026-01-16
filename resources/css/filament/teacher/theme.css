@@ -1,0 +1,594 @@
+/* ============================================================================
+   TEACHER PANEL - EDUCATIONAL COLOR PSYCHOLOGY THEME
+   World-class interface using color psychology for educational environments
+   ============================================================================ */
+
+/* === IMPORT CORE SYSTEMS === */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('color-system.css');
+@import url('animations.css');
+
+/* ============================================================================
+   GLOBAL FOUNDATION
+   ============================================================================ */
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.fi-layout.fi-layout-has-sidebar {
+    background-color: var(--bg-surface);
+}
+
+/* ============================================================================
+   SIDEBAR - INSTRUCTIONAL ACTIONS (Sapphire Blue)
+   ============================================================================ */
+
+aside.fi-sidebar {
+    background: linear-gradient(180deg,
+            var(--color-instruction-700) 0%,
+            var(--color-instruction-800) 50%,
+            var(--color-instruction-900) 100%) !important;
+    border-right: none !important;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar Header */
+.fi-sidebar-header {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+    backdrop-filter: blur(10px);
+}
+
+.fi-sidebar-header .fi-logo {
+    color: white !important;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.025em;
+}
+
+/* Sidebar Navigation Items */
+.fi-sidebar-nav .fi-sidebar-item-label {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.2s ease;
+}
+
+.fi-sidebar-nav .fi-sidebar-group-label span {
+    color: rgba(255, 255, 255, 0.5) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.075em;
+    font-size: 0.6875rem;
+    font-weight: 600;
+}
+
+/* Active State - Instructional Focus */
+.fi-sidebar-item-active {
+    background: linear-gradient(90deg,
+            rgba(59, 130, 246, 0.2) 0%,
+            rgba(59, 130, 246, 0.05) 100%) !important;
+    border-left: 4px solid var(--color-instruction-400);
+    border-radius: 6px !important;
+    box-shadow: var(--shadow-instruction);
+}
+
+.fi-sidebar-item-active .fi-sidebar-item-label {
+    color: white !important;
+    font-weight: 600;
+}
+
+.fi-sidebar-item-active svg {
+    color: var(--color-instruction-300) !important;
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
+}
+
+/* Hover State */
+.fi-sidebar-item:hover:not(.fi-sidebar-item-active) {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+}
+
+.fi-sidebar-item:hover:not(.fi-sidebar-item-active) .fi-sidebar-item-label {
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* ============================================================================
+   DASHBOARD CARDS - SMART CARD SYSTEM
+   ============================================================================ */
+
+.fi-widget,
+.fi-section {
+    border-radius: 16px !important;
+    box-shadow: var(--shadow-md) !important;
+    border: 1px solid var(--border-default) !important;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    background: var(--bg-card);
+    overflow: hidden;
+}
+
+.fi-widget:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg) !important;
+}
+
+/* ============================================================================
+   STATS CARDS - COGNITIVE HIERARCHY COLORS
+   ============================================================================ */
+
+.fi-stats-overview-stat {
+    padding: 1.75rem !important;
+    background: var(--bg-card);
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px !important;
+    transition: all 0.3s ease;
+}
+
+/* Left border color indicators */
+.fi-stats-overview-stat::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, currentColor, transparent);
+    opacity: 0.8;
+}
+
+/* Knowledge Acquisition - Emerald Green */
+.fi-stats-overview-stat:nth-child(1) {
+    border: 1px solid var(--color-knowledge-200);
+    background: linear-gradient(135deg, var(--bg-success-subtle) 0%, var(--bg-card) 100%);
+}
+
+.fi-stats-overview-stat:nth-child(1)::before {
+    background: linear-gradient(180deg, var(--color-knowledge-500), var(--color-knowledge-600));
+}
+
+.fi-stats-overview-stat:nth-child(1):hover {
+    box-shadow: var(--shadow-knowledge);
+    border-color: var(--color-knowledge-300);
+}
+
+/* Attention Required - Amber Gold (with pulse) */
+.fi-stats-overview-stat:nth-child(2) {
+    border: 1px solid var(--color-attention-200);
+    background: linear-gradient(135deg, var(--bg-warning-subtle) 0%, var(--bg-card) 100%);
+}
+
+.fi-stats-overview-stat:nth-child(2)::before {
+    background: linear-gradient(180deg, var(--color-attention-500), var(--color-attention-600));
+}
+
+.fi-stats-overview-stat:nth-child(2):hover {
+    box-shadow: var(--shadow-attention);
+    border-color: var(--color-attention-300);
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Knowledge Mastery - Success Gradient */
+.fi-stats-overview-stat:nth-child(3) {
+    border: 1px solid var(--color-knowledge-200);
+    background: linear-gradient(135deg, var(--bg-success-subtle) 0%, var(--bg-card) 100%);
+}
+
+.fi-stats-overview-stat:nth-child(3)::before {
+    background: linear-gradient(180deg, var(--color-success-start), var(--color-success-mid));
+}
+
+.fi-stats-overview-stat:nth-child(3):hover {
+    box-shadow: var(--shadow-knowledge);
+    border-color: var(--color-knowledge-300);
+}
+
+/* Student Engagement - Coral Pink */
+.fi-stats-overview-stat:nth-child(4) {
+    border: 1px solid var(--color-engagement-200);
+    background: linear-gradient(135deg, var(--bg-engagement-subtle) 0%, var(--bg-card) 100%);
+}
+
+.fi-stats-overview-stat:nth-child(4)::before {
+    background: linear-gradient(180deg, var(--color-engagement-500), var(--color-engagement-600));
+}
+
+.fi-stats-overview-stat:nth-child(4):hover {
+    box-shadow: var(--shadow-engagement);
+    border-color: var(--color-engagement-300);
+}
+
+/* Stat Labels */
+.fi-stats-overview-stat-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+/* Stat Values */
+.fi-stats-overview-stat-value {
+    font-size: 2.25rem !important;
+    font-weight: 800 !important;
+    color: var(--text-primary) !important;
+    margin-top: 0.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+}
+
+/* Stat Descriptions */
+.fi-stats-overview-stat-description {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+/* Stat Charts */
+.fi-stats-overview-stat-chart {
+    margin-top: 1rem;
+    opacity: 0.6;
+}
+
+/* ============================================================================
+   TABLES - ENHANCED READABILITY
+   ============================================================================ */
+
+.fi-ta-content {
+    border-radius: 16px !important;
+    overflow: hidden;
+    border: 1px solid var(--border-default);
+}
+
+.fi-ta-header-cell {
+    background-color: var(--color-neutral-50);
+    color: var(--text-secondary);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.6875rem;
+    letter-spacing: 0.075em;
+    padding: 1rem 1.25rem !important;
+}
+
+.fi-ta-row {
+    transition: background-color 0.15s ease;
+}
+
+.fi-ta-row:hover {
+    background-color: var(--color-neutral-50) !important;
+}
+
+.fi-ta-cell {
+    padding: 1rem 1.25rem !important;
+}
+
+/* ============================================================================
+   BADGES - ASSESSMENT TYPE COLORS
+   ============================================================================ */
+
+/* Midterm - Sapphire Blue (Instructional) */
+.fi-badge[class*="info"] {
+    background-color: var(--color-instruction-100) !important;
+    color: var(--color-instruction-700) !important;
+    border: 1px solid var(--color-instruction-300);
+    font-weight: 600;
+    padding: 0.375rem 0.75rem;
+    border-radius: 8px;
+}
+
+/* Test - Amber Gold (Attention) */
+.fi-badge[class*="warning"] {
+    background-color: var(--color-attention-100) !important;
+    color: var(--color-attention-700) !important;
+    border: 1px solid var(--color-attention-300);
+    font-weight: 600;
+    padding: 0.375rem 0.75rem;
+    border-radius: 8px;
+}
+
+/* Final - Emerald Green (Knowledge Mastery) */
+.fi-badge[class*="success"] {
+    background-color: var(--color-knowledge-100) !important;
+    color: var(--color-knowledge-700) !important;
+    border: 1px solid var(--color-knowledge-300);
+    font-weight: 600;
+    padding: 0.375rem 0.75rem;
+    border-radius: 8px;
+}
+
+/* Assignment - Royal Purple (Analytical) */
+.fi-badge[class*="gray"] {
+    background-color: var(--color-analytics-100) !important;
+    color: var(--color-analytics-700) !important;
+    border: 1px solid var(--color-analytics-300);
+    font-weight: 600;
+    padding: 0.375rem 0.75rem;
+    border-radius: 8px;
+}
+
+/* Danger/Critical */
+.fi-badge[class*="danger"] {
+    background-color: var(--color-critical-end) !important;
+    color: var(--color-critical-start) !important;
+    border: 1px solid var(--color-critical-mid);
+    font-weight: 600;
+    padding: 0.375rem 0.75rem;
+    border-radius: 8px;
+}
+
+/* Primary - Instructional Blue */
+.fi-badge[class*="primary"] {
+    background-color: var(--color-instruction-100) !important;
+    color: var(--color-instruction-700) !important;
+    border: 1px solid var(--color-instruction-300);
+    font-weight: 600;
+    padding: 0.375rem 0.75rem;
+    border-radius: 8px;
+}
+
+/* ============================================================================
+   BUTTONS - ENHANCED INTERACTIONS
+   ============================================================================ */
+
+/* Primary Button - Instructional Actions */
+.fi-btn-primary,
+.fi-btn[class*="primary"] {
+    background: linear-gradient(135deg, var(--color-instruction-600) 0%, var(--color-instruction-700) 100%) !important;
+    box-shadow: var(--shadow-instruction) !important;
+    border: none !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease;
+    color: white !important;
+}
+
+.fi-btn-primary:hover,
+.fi-btn[class*="primary"]:hover {
+    background: linear-gradient(135deg, var(--color-instruction-500) 0%, var(--color-instruction-600) 100%) !important;
+    box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.4) !important;
+    transform: translateY(-1px);
+}
+
+/* Success Button - Knowledge/Completion */
+.fi-btn[class*="success"] {
+    background: linear-gradient(135deg, var(--color-knowledge-600) 0%, var(--color-knowledge-700) 100%) !important;
+    box-shadow: var(--shadow-knowledge) !important;
+    border: none !important;
+    font-weight: 600 !important;
+    color: white !important;
+}
+
+.fi-btn[class*="success"]:hover {
+    background: linear-gradient(135deg, var(--color-knowledge-500) 0%, var(--color-knowledge-600) 100%) !important;
+    box-shadow: 0 10px 20px -5px rgba(16, 185, 129, 0.4) !important;
+    transform: translateY(-1px);
+}
+
+/* Warning Button - Attention Required */
+.fi-btn[class*="warning"] {
+    background: linear-gradient(135deg, var(--color-attention-500) 0%, var(--color-attention-600) 100%) !important;
+    box-shadow: var(--shadow-attention) !important;
+    border: none !important;
+    font-weight: 600 !important;
+    color: white !important;
+}
+
+.fi-btn[class*="warning"]:hover {
+    background: linear-gradient(135deg, var(--color-attention-400) 0%, var(--color-attention-500) 100%) !important;
+    box-shadow: 0 10px 20px -5px rgba(245, 158, 11, 0.4) !important;
+    transform: translateY(-1px);
+}
+
+/* Danger Button */
+.fi-btn[class*="danger"] {
+    background: linear-gradient(135deg, var(--color-critical-mid) 0%, var(--color-critical-start) 100%) !important;
+    box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.3) !important;
+    border: none !important;
+    font-weight: 600 !important;
+    color: white !important;
+}
+
+.fi-btn[class*="danger"]:hover {
+    background: linear-gradient(135deg, var(--color-critical-end) 0%, var(--color-critical-mid) 100%) !important;
+    box-shadow: 0 10px 20px -5px rgba(220, 38, 38, 0.4) !important;
+    transform: translateY(-1px);
+}
+
+/* ============================================================================
+   FORMS - VALIDATION COLOR FEEDBACK
+   ============================================================================ */
+
+/* Input Fields */
+.fi-input,
+.fi-select,
+.fi-textarea {
+    border: 1.5px solid var(--border-default);
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    background-color: var(--bg-card);
+}
+
+.fi-input:focus,
+.fi-select:focus,
+.fi-textarea:focus {
+    border-color: var(--color-instruction-500);
+    box-shadow: 0 0 0 3px var(--focus-instruction);
+    outline: none;
+}
+
+/* Error State */
+.fi-input[class*="error"],
+.fi-select[class*="error"],
+.fi-textarea[class*="error"] {
+    border-color: var(--color-critical-mid);
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Success State */
+.fi-input[class*="success"],
+.fi-select[class*="success"],
+.fi-textarea[class*="success"] {
+    border-color: var(--color-knowledge-500);
+    box-shadow: 0 0 0 3px var(--focus-knowledge);
+}
+
+/* Required Field Indicator */
+.fi-fo-field-wrp-label-required::after {
+    color: var(--color-critical-mid);
+}
+
+/* ============================================================================
+   HEADER / TOPBAR
+   ============================================================================ */
+
+.fi-topbar {
+    background-color: var(--bg-card) !important;
+    border-bottom: 1px solid var(--border-default) !important;
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(10px);
+}
+
+/* User Menu */
+.fi-user-menu-button {
+    transition: all 0.2s ease;
+    border-radius: 12px;
+}
+
+.fi-user-menu-button:hover {
+    background-color: var(--color-neutral-100);
+}
+
+/* ============================================================================
+   NOTIFICATIONS
+   ============================================================================ */
+
+.fi-notification {
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    border-left: 4px solid currentColor;
+}
+
+.fi-notification[class*="success"] {
+    border-left-color: var(--color-knowledge-500);
+    background-color: var(--bg-success-subtle);
+}
+
+.fi-notification[class*="warning"] {
+    border-left-color: var(--color-attention-500);
+    background-color: var(--bg-warning-subtle);
+}
+
+.fi-notification[class*="danger"] {
+    border-left-color: var(--color-critical-mid);
+    background-color: var(--bg-critical-subtle);
+}
+
+.fi-notification[class*="info"] {
+    border-left-color: var(--color-instruction-500);
+    background-color: var(--bg-info-subtle);
+}
+
+/* ============================================================================
+   MODALS
+   ============================================================================ */
+
+.fi-modal {
+    border-radius: 20px;
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--border-default);
+}
+
+.fi-modal-header {
+    border-bottom: 1px solid var(--border-default);
+    padding: 1.5rem;
+}
+
+.fi-modal-footer {
+    border-top: 1px solid var(--border-default);
+    padding: 1.25rem 1.5rem;
+    background-color: var(--color-neutral-50);
+}
+
+/* ============================================================================
+   DARK MODE ENHANCEMENTS
+   ============================================================================ */
+
+.dark .fi-layout.fi-layout-has-sidebar {
+    background-color: var(--bg-surface);
+}
+
+.dark .fi-widget,
+.dark .fi-section {
+    background-color: var(--bg-card);
+    border-color: var(--border-default) !important;
+}
+
+.dark .fi-stats-overview-stat-value {
+    color: var(--text-primary) !important;
+}
+
+.dark .fi-ta-header-cell {
+    background-color: var(--color-neutral-800);
+}
+
+.dark .fi-ta-row:hover {
+    background-color: var(--color-neutral-800) !important;
+}
+
+.dark .fi-topbar {
+    background-color: var(--bg-card) !important;
+    border-bottom-color: var(--border-default) !important;
+}
+
+/* ============================================================================
+   ACCESSIBILITY ENHANCEMENTS
+   ============================================================================ */
+
+/* High Contrast Focus Indicators */
+*:focus-visible {
+    outline: 3px solid var(--color-instruction-500);
+    outline-offset: 2px;
+}
+
+/* Skip to Content Link */
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-instruction-600);
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
+/* ============================================================================
+   PRINT STYLES
+   ============================================================================ */
+
+@media print {
+    aside.fi-sidebar {
+        display: none;
+    }
+
+    .fi-topbar {
+        display: none;
+    }
+
+    .fi-widget,
+    .fi-section {
+        box-shadow: none !important;
+        border: 1px solid #000 !important;
+    }
+}

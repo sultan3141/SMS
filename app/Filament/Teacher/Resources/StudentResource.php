@@ -42,7 +42,7 @@ class StudentResource extends Resource
                     ->label('Student ID')
                     ->searchable()
                     ->badge()
-                    ->color('primary'),
+                    ->color('instruction'),  // Sapphire Blue - Instructional context
                 Tables\Columns\TextColumn::make('email')
                     ->searchable()
                     ->toggleable(),

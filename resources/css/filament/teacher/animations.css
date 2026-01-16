@@ -1,0 +1,634 @@
+/* ============================================================================
+   EDUCATIONAL UI ANIMATIONS
+   Micro-animations and transitions for enhanced engagement
+   60fps optimized | GPU accelerated | Reduced motion support
+   ============================================================================ */
+
+/* ============================================================================
+   1. PULSE ANIMATIONS
+   For urgent items and attention-required elements
+   ============================================================================ */
+
+@keyframes pulse-attention {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.85;
+        transform: scale(1.02);
+    }
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 0 8px rgba(245, 158, 11, 0);
+    }
+}
+
+.pulse-attention {
+    animation: pulse-attention 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.pulse-glow {
+    animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ============================================================================
+   2. CELEBRATION ANIMATIONS
+   For achievements and successful completions
+   ============================================================================ */
+
+@keyframes celebrate-bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-10px);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    75% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes celebrate-shimmer {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.celebrate-bounce {
+    animation: celebrate-bounce 0.6s ease-out;
+}
+
+.celebrate-shimmer {
+    background: linear-gradient(90deg,
+            var(--color-knowledge-500) 0%,
+            var(--color-knowledge-300) 50%,
+            var(--color-knowledge-500) 100%);
+    background-size: 200% auto;
+    animation: celebrate-shimmer 1.5s linear infinite;
+}
+
+/* ============================================================================
+   3. SMOOTH COLOR TRANSITIONS
+   60fps optimized color changes
+   ============================================================================ */
+
+@keyframes color-fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.color-transition-fast {
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    will-change: background-color, color, border-color;
+}
+
+.color-transition-smooth {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    will-change: background-color, color, border-color;
+}
+
+.color-transition-slow {
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+    will-change: background-color, color, border-color;
+}
+
+/* ============================================================================
+   4. LOADING STATE ANIMATIONS
+   Gradient animations for loading indicators
+   ============================================================================ */
+
+@keyframes loading-gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes loading-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-gradient {
+    background: linear-gradient(270deg,
+            var(--loading-gradient-start),
+            var(--loading-gradient-end),
+            var(--loading-gradient-start));
+    background-size: 200% 200%;
+    animation: loading-gradient 2s ease infinite;
+}
+
+.loading-spin {
+    animation: loading-spin 1s linear infinite;
+}
+
+/* ============================================================================
+   5. HOVER EFFECT MICRO-ANIMATIONS
+   Subtle interactions for better UX
+   ============================================================================ */
+
+@keyframes hover-lift {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-2px);
+    }
+}
+
+@keyframes hover-glow {
+    from {
+        box-shadow: var(--shadow-md);
+    }
+
+    to {
+        box-shadow: var(--shadow-lg);
+    }
+}
+
+.hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.hover-glow {
+    transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+    box-shadow: var(--shadow-xl);
+}
+
+/* ============================================================================
+   6. FOCUS ANIMATIONS
+   High-contrast focus indicators
+   ============================================================================ */
+
+@keyframes focus-ring-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 3px var(--focus-instruction);
+    }
+
+    50% {
+        box-shadow: 0 0 0 5px var(--focus-instruction);
+    }
+}
+
+.focus-ring {
+    outline: none;
+    transition: box-shadow 0.2s ease;
+}
+
+.focus-ring:focus {
+    box-shadow: 0 0 0 3px var(--focus-instruction);
+}
+
+.focus-ring-pulse:focus {
+    animation: focus-ring-pulse 1.5s ease infinite;
+}
+
+/* ============================================================================
+   7. SLIDE & FADE ANIMATIONS
+   For content transitions
+   ============================================================================ */
+
+@keyframes slide-in-right {
+    from {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-left {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-up {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.slide-in-right {
+    animation: slide-in-right 0.3s ease-out;
+}
+
+.slide-in-left {
+    animation: slide-in-left 0.3s ease-out;
+}
+
+.slide-in-up {
+    animation: slide-in-up 0.3s ease-out;
+}
+
+.fade-in {
+    animation: fade-in 0.3s ease-out;
+}
+
+/* ============================================================================
+   8. PROGRESS BAR ANIMATIONS
+   For visual progress tracking
+   ============================================================================ */
+
+@keyframes progress-fill {
+    from {
+        width: 0%;
+    }
+}
+
+@keyframes progress-shimmer {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.progress-fill {
+    animation: progress-fill 1s ease-out;
+}
+
+.progress-shimmer {
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.3) 50%,
+            transparent 100%);
+    background-size: 200% auto;
+    animation: progress-shimmer 2s linear infinite;
+}
+
+/* ============================================================================
+   9. BADGE & NOTIFICATION ANIMATIONS
+   For alerts and status indicators
+   ============================================================================ */
+
+@keyframes badge-pop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes notification-slide {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.badge-pop {
+    animation: badge-pop 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.notification-slide {
+    animation: notification-slide 0.4s ease-out;
+}
+
+/* ============================================================================
+   10. STAGGER ANIMATIONS
+   For list items and sequential reveals
+   ============================================================================ */
+
+.stagger-item {
+    opacity: 0;
+    animation: fade-in 0.4s ease-out forwards;
+}
+
+.stagger-item:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.stagger-item:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.stagger-item:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.stagger-item:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+.stagger-item:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+.stagger-item:nth-child(6) {
+    animation-delay: 0.3s;
+}
+
+.stagger-item:nth-child(7) {
+    animation-delay: 0.35s;
+}
+
+.stagger-item:nth-child(8) {
+    animation-delay: 0.4s;
+}
+
+.stagger-item:nth-child(9) {
+    animation-delay: 0.45s;
+}
+
+.stagger-item:nth-child(10) {
+    animation-delay: 0.5s;
+}
+
+/* ============================================================================
+   11. SKELETON LOADING ANIMATIONS
+   For content placeholders
+   ============================================================================ */
+
+@keyframes skeleton-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes skeleton-wave {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.skeleton-pulse {
+    animation: skeleton-pulse 1.5s ease-in-out infinite;
+    background-color: var(--color-neutral-200);
+}
+
+.skeleton-wave {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-neutral-200);
+}
+
+.skeleton-wave::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.5),
+            transparent);
+    animation: skeleton-wave 1.5s ease-in-out infinite;
+}
+
+/* ============================================================================
+   12. CHART & DATA ANIMATIONS
+   For data visualization transitions
+   ============================================================================ */
+
+@keyframes chart-draw {
+    from {
+        stroke-dashoffset: 1000;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes bar-grow {
+    from {
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
+
+    to {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+}
+
+.chart-draw {
+    stroke-dasharray: 1000;
+    animation: chart-draw 1.5s ease-out forwards;
+}
+
+.bar-grow {
+    animation: bar-grow 0.6s ease-out forwards;
+}
+
+/* ============================================================================
+   13. BUTTON INTERACTIONS
+   Enhanced button feedback
+   ============================================================================ */
+
+@keyframes button-press {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes button-ripple {
+    0% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.button-press:active {
+    animation: button-press 0.2s ease;
+}
+
+/* ============================================================================
+   14. ACCESSIBILITY: REDUCED MOTION
+   Respect user preferences for reduced motion
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* Keep essential animations but make them instant */
+    .pulse-attention,
+    .pulse-glow,
+    .celebrate-bounce,
+    .loading-gradient,
+    .loading-spin {
+        animation: none !important;
+    }
+}
+
+/* ============================================================================
+   15. PERFORMANCE OPTIMIZATIONS
+   GPU acceleration and efficient rendering
+   ============================================================================ */
+
+/* Enable hardware acceleration for animations */
+.gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Optimize for 60fps */
+@media (prefers-reduced-motion: no-preference) {
+    .smooth-60fps {
+        will-change: transform, opacity;
+        transform: translateZ(0);
+    }
+}
+
+/* ============================================================================
+   16. CONTEXTUAL ANIMATIONS
+   Time-of-day and context-aware animations
+   ============================================================================ */
+
+@keyframes morning-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+    }
+}
+
+@keyframes evening-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
+    }
+}
+
+.morning-glow {
+    animation: morning-glow 3s ease-in-out infinite;
+}
+
+.evening-glow {
+    animation: evening-glow 3s ease-in-out infinite;
+}

@@ -38,10 +38,10 @@ class RecentMarksWidget extends BaseWidget
                     ->label('Assessment')
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
-                        'Midterm' => 'info',
-                        'Test' => 'warning',
-                        'Assignment' => 'gray',
-                        'Final' => 'success',
+                        'Midterm' => 'instruction',    // Sapphire Blue - Instructional
+                        'Test' => 'attention',         // Amber Gold - Attention/Assessment
+                        'Assignment' => 'analytics',   // Royal Purple - Analytical work
+                        'Final' => 'knowledge',        // Emerald Green - Knowledge Mastery
                         default => 'gray',
                     }),
                 Tables\Columns\TextColumn::make('score')

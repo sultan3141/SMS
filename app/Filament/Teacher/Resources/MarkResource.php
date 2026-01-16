@@ -174,10 +174,10 @@ class MarkResource extends Resource
                     ->label('Assessment')
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
-                        'Midterm' => 'info',
-                        'Test' => 'warning',
-                        'Assignment' => 'gray',
-                        'Final' => 'success',
+                        'Midterm' => 'instruction',    // Sapphire Blue - Instructional
+                        'Test' => 'attention',         // Amber Gold - Attention/Assessment
+                        'Assignment' => 'analytics',   // Royal Purple - Analytical work
+                        'Final' => 'knowledge',        // Emerald Green - Knowledge Mastery
                         default => 'gray',
                     }),
                 Tables\Columns\TextColumn::make('score')
@@ -187,10 +187,13 @@ class MarkResource extends Resource
                 Tables\Columns\TextColumn::make('percentage')
                     ->label('%')
                     ->formatStateUsing(fn (Mark $record) => number_format($record->percentage, 1) . '%')
+                    ->badge()
                     ->color(fn (Mark $record): string => match (true) {
-                        $record->percentage >= 80 => 'success',
-                        $record->percentage >= 60 => 'warning',
-                        default => 'danger',
+                        $record->percentage >= 90 => 'knowledge',    // 90%+ Excellent - Emerald
+                        $record->percentage >= 80 => 'success',      // 80-89% Good - Success gradient
+                        $record->percentage >= 70 => 'instruction',  // 70-79% Satisfactory - Blue
+                        $record->percentage >= 60 => 'attention',    // 60-69% Needs attention - Amber
+                        default => 'danger',                         // <60% Critical - Red
                     }),
                 Tables\Columns\IconColumn::make('is_submitted')
                     ->label('Submitted')

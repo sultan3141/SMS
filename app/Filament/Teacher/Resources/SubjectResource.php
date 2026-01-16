@@ -55,7 +55,7 @@ class SubjectResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('code')
                     ->badge()
-                    ->color('primary')
+                    ->color('instruction')  // Sapphire Blue - Instructional materials
                     ->searchable(),
                 Tables\Columns\TextColumn::make('description')
                     ->limit(50)

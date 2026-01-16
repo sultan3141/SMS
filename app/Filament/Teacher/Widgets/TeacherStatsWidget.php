@@ -29,25 +29,25 @@ class TeacherStatsWidget extends BaseWidget
             Stat::make('Total Marks Entered', $totalMarks)
                 ->description('All assessment records')
                 ->descriptionIcon('heroicon-m-clipboard-document-list')
-                ->color('primary')
+                ->color('knowledge')  // Emerald Green - Knowledge Acquisition
                 ->chart([7, 3, 4, 5, 6, 3, 5, 8]),
 
             Stat::make('Pending Submissions', $pendingSubmissions)
                 ->description('Awaiting submission')
                 ->descriptionIcon('heroicon-m-clock')
-                ->color('warning')
+                ->color('attention')  // Amber Gold - Attention Required (with pulse animation in CSS)
                 ->chart([3, 5, 7, 4, 6, 8, 5, 4]),
 
             Stat::make('Submitted Marks', $submittedMarks)
                 ->description('Finalized records')
                 ->descriptionIcon('heroicon-m-check-circle')
-                ->color('success')
+                ->color('knowledge')  // Emerald Green - Knowledge Mastery/Completion
                 ->chart([5, 4, 6, 7, 8, 9, 10, 12]),
 
             Stat::make('Total Students', $totalStudents)
                 ->description('Enrolled students')
                 ->descriptionIcon('heroicon-m-user-group')
-                ->color('info'),
+                ->color('engagement'),  // Coral Pink - Student Engagement
         ];
     }
 }
