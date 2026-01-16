@@ -8,7 +8,7 @@ use App\Models\Course;
 
 class StudentsPerCourseChart extends ChartWidget
 {
-    protected ?string $heading = 'Students per Course';
+    protected static ?string $heading = 'Students per Course';
 
     protected function getData(): array
     {

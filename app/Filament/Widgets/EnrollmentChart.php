@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class EnrollmentChart extends ChartWidget
 {
-    protected ?string $heading = 'Monthly Enrollments';
+    protected static ?string $heading = 'Monthly Enrollments';
 
     protected function getData(): array
     {

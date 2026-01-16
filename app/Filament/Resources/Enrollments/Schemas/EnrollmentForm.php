@@ -3,14 +3,14 @@
 namespace App\Filament\Resources\Enrollments\Schemas;
 
 use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Schema;
+use Filament\Forms\Form;
 
 class EnrollmentForm
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Form $form): Form
     {
-        return $schema
-            ->components([
+        return $form
+            ->schema([
                 TextInput::make('student_id')
                     ->required()
                     ->numeric(),

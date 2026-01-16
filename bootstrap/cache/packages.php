@@ -55,20 +55,6 @@
       0 => 'Filament\\Notifications\\NotificationsServiceProvider',
     ),
   ),
-  'filament/query-builder' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Filament\\QueryBuilder\\QueryBuilderServiceProvider',
-    ),
-  ),
-  'filament/schemas' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Filament\\Schemas\\SchemasServiceProvider',
-    ),
-  ),
   'filament/support' => 
   array (
     'providers' => 

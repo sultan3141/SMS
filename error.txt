@@ -1,0 +1,7 @@
+PHP Fatal error:  Uncaught RuntimeException: Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.4.0". You are running 8.2.12. in C:\Users\Ezedi\SMS\SMS\vendor\composer\platform_check.php:22
+Stack trace:
+#0 C:\Users\Ezedi\SMS\SMS\vendor\composer\autoload_real.php(25): require()
+#1 C:\Users\Ezedi\SMS\SMS\vendor\autoload.php(22): ComposerAutoloaderInitc82d21129cf8ec29be281e23aecc6a2e::getLoader()
+#2 C:\Users\Ezedi\SMS\SMS\artisan(18): require('C:\\Users\\Ezedi\\...')
+#3 {main}
+  thrown in C:\Users\Ezedi\SMS\SMS\vendor\composer\platform_check.php on line 22

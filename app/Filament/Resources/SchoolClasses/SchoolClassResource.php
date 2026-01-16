@@ -8,15 +8,18 @@ use App\Filament\Resources\SchoolClasses\Pages\ListSchoolClasses;
 use App\Filament\Resources\SchoolClasses\Schemas\SchoolClassForm;
 use App\Filament\Resources\SchoolClasses\Tables\SchoolClassesTable;
 use App\Models\SchoolClass;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 
 class SchoolClassResource extends Resource
 {
     protected static ?string $model = SchoolClass::class;
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-building-library';
+    public static function getNavigationIcon(): ?string
+    {
+        return 'heroicon-o-building-library';
+    }
 
     public static function getNavigationGroup(): ?string
     {
@@ -25,9 +28,9 @@ class SchoolClassResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return SchoolClassForm::configure($schema);
+        return SchoolClassForm::configure($form);
     }
 
     public static function table(Table $table): Table

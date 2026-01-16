@@ -3,14 +3,14 @@
 namespace App\Filament\Resources\SchoolClasses\Schemas;
 
 use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Schema;
+use Filament\Forms\Form;
 
 class SchoolClassForm
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Form $form): Form
     {
-        return $schema
-            ->components([
+        return $form
+            ->schema([
                 TextInput::make('name')
                     ->required(),
             ]);

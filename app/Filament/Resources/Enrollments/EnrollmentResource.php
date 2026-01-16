@@ -8,15 +8,18 @@ use App\Filament\Resources\Enrollments\Pages\ListEnrollments;
 use App\Filament\Resources\Enrollments\Schemas\EnrollmentForm;
 use App\Filament\Resources\Enrollments\Tables\EnrollmentsTable;
 use App\Models\Enrollment;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 
 class EnrollmentResource extends Resource
 {
     protected static ?string $model = Enrollment::class;
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-clipboard-document-list';
+    public static function getNavigationIcon(): ?string
+    {
+        return 'heroicon-o-clipboard-document-list';
+    }
 
     public static function getNavigationGroup(): ?string
     {
@@ -25,9 +28,9 @@ class EnrollmentResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'id';
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return EnrollmentForm::configure($schema);
+        return EnrollmentForm::configure($form);
     }
 
     public static function table(Table $table): Table

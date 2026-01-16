@@ -8,15 +8,18 @@ use App\Filament\Resources\Grades\Pages\ListGrades;
 use App\Filament\Resources\Grades\Schemas\GradeForm;
 use App\Filament\Resources\Grades\Tables\GradesTable;
 use App\Models\Grade;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 
 class GradeResource extends Resource
 {
     protected static ?string $model = Grade::class;
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-chart-bar';
+    public static function getNavigationIcon(): ?string
+    {
+        return 'heroicon-o-chart-bar';
+    }
 
     public static function getNavigationGroup(): ?string
     {
@@ -25,9 +28,9 @@ class GradeResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'id';
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return GradeForm::configure($schema);
+        return GradeForm::configure($form);
     }
 
     public static function table(Table $table): Table
