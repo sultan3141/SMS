@@ -14,5 +14,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
+
+// Unified Login System - Single login for all users
+Route::get('/login', [App\Http\Controllers\Auth\UnifiedLoginController::class, 'showLoginForm'])
+    ->name('login');
+
+Route::post('/login', [App\Http\Controllers\Auth\UnifiedLoginController::class, 'login'])
+    ->name('login.post');
+
+Route::post('/logout', [App\Http\Controllers\Auth\UnifiedLoginController::class, 'logout'])
+    ->name('logout');
+
+// Redirect old login routes to unified login
+Route::get('/teacher/login', function () {
+    return redirect('/login');
+})->name('filament.teacher.auth.login');
+
+Route::get('/admin/login', function () {
+    return redirect('/login');
+})->name('filament.admin.auth.login');

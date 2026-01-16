@@ -25,7 +25,7 @@ class TeacherPanelProvider extends PanelProvider
         return $panel
             ->id('teacher')
             ->path('teacher')
-            ->login()
+            // ->login() // Disabled - using standalone login at /teacher/login
             ->colors([
                 'primary' => Color::Emerald,
             ])
@@ -34,7 +34,7 @@ class TeacherPanelProvider extends PanelProvider
             ->brandLogo(asset('school_logo_1766441408212.png'))
             ->brandLogoHeight('3rem')
             ->sidebarCollapsibleOnDesktop()
-            ->spa()
+            // ->spa()
             ->databaseNotifications()
             ->databaseNotificationsPolling('30s')
             ->discoverResources(in: app_path('Filament/Teacher/Resources'), for: 'App\\Filament\\Teacher\\Resources')

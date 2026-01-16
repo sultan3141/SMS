@@ -27,7 +27,7 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
-            ->login()
+            // ->login() // Disabled - using unified login at /login
             ->colors([
                 'primary' => Color::Violet,
             ])
@@ -35,7 +35,7 @@ class AdminPanelProvider extends PanelProvider
             ->brandLogo(asset('school_logo_1766441408212.png'))
             ->brandLogoHeight('3rem')
             ->sidebarCollapsibleOnDesktop()
-            ->spa()
+            // ->spa()
             ->databaseNotifications()
             ->databaseNotificationsPolling('30s')
             ->resources([
